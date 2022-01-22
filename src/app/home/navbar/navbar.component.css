@@ -67,6 +67,10 @@ body {
     color: rgba(156,0,0,1);
     left: 1800px;
 }
+.activate_sidebar_icon {
+    color: rgba(156,0,0,1);
+    left: 10px;
+}
 .avatar {
     border-style: solid;
     border-width: 1px;
