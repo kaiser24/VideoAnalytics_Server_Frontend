@@ -19,7 +19,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 /* General styles */
 .login_view_container {
     width: 100%;
-    height: 940px;
+    height: 100%;
     background: rgba(28,28,28,1);
     opacity: 1;
     position: absolute;
@@ -28,13 +28,9 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     overflow: hidden;
 }
 .center_container {
-    width: 971px;
-    height: 636px;
     background: rgba(12,12,12,1);
     opacity: 1;
     position: absolute;
-    top: 145px;
-    left: 446px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
@@ -51,10 +47,6 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     background-size: cover;
     opacity: 1;
     position: absolute;
-    top: 0px;
-    left: 0px;
-    top: 700px;
-    left: 1445px;
     overflow: hidden;
 }
 .login_form_background {
@@ -147,16 +139,109 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 }
 
 .inner_picture {
-    width: 821px;
-    height: 607px;
     background: url("../../assets/images/loginview_images/login_bkg_image.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     opacity: 1;
     position: absolute;
-    top: 159px;
-    left: 521px;
     overflow: hidden;
 }
-  
+
+
+/* Only for Mobile */
+.center_container {
+    width: 100%;
+    height: 48%;
+    left: 0px;
+    top: 5%;
+}
+.inner_picture {
+    top: 10%;
+    left: 0;
+    width: 459px;
+    height: 339px;
+}
+.login_form_container {
+    top: 45%;
+    left: 13%;
+}
+/* Only for desktop tablets */
+@media only screen and (min-width: 580px) {
+    .center_container {
+        width: 100%;
+        height: 48%;
+        left: 0px;
+        top: 5%;
+    }
+    .inner_picture {
+        top: 8%;
+        left: 15%;
+        width: 70%;
+        height: 40%;
+    }
+    .login_form_container {
+        top: 50%;
+        left: 26%;
+    }
+}
+
+/* Only for desktop tablets */
+@media only screen and (min-width: 800px) {
+    .center_container {
+        width: 80%;
+        height: 68%;
+        left: 10%;
+        top: 15%;
+    }
+    .inner_picture {
+        top: 22%;
+        left: 16%;
+        width: 68%;
+        height: 50%;
+    }
+    .login_form_container {
+        top: 75%;
+        left: 38%;
+    }
+}
+
+/* Only for desktop browsers */
+@media only screen and (min-width: 1080px) {
+    .center_container {
+        width: 80%;
+        height: 68%;
+        left: 10%;
+        top: 15%;
+    }
+    .inner_picture {
+        top: 16%;
+        left: 24%;
+        width: 55%;
+        height: 60%;
+    }
+    .login_form_container {
+        top: 75%;
+        left: 68%;
+    }
+}
+
+/* Only for desktop browsers */
+@media only screen and (min-width: 1420px) {
+    .center_container {
+        width: 80%;
+        height: 68%;
+        left: 10%;
+        top: 15%;
+    }
+    .inner_picture {
+        top: 16%;
+        left: 28%;
+        width: 45%;
+        height: 65%;
+    }
+    .login_form_container {
+        top: 75%;
+        left: 75%;
+    }
+}
