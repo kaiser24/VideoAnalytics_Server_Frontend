@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 14px;
+}
+#element {
+	caret-color: rgba(156,0,0,1);
+}
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: rgba(156,0,0,1);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(159, 0, 0, 0.6);
+    outline: 0 none;
+}
+/* General styles */
+.login_view_container {
+    width: 100%;
+    height: 940px;
+    background: rgba(28,28,28,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+.center_container {
+    width: 971px;
+    height: 636px;
+    background: rgba(12,12,12,1);
+    opacity: 1;
+    position: absolute;
+    top: 145px;
+    left: 446px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+
+.login_form_container {
+    width: 334px;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    top: 700px;
+    left: 1445px;
+    overflow: hidden;
+}
+.login_form_background {
+    width: 334px;
+    height: 180px;
+    background: rgba(0,0,0,1);
+    opacity: 1;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    overflow: hidden;
+}
+.chevron_icon {
+    color: rgba(156,0,0,1);
+    width: 25px;
+    height: 25px;
+    opacity: 1;
+    background-color: Transparent;
+    -webkit-text-stroke: 2px;
+}
+.input_text {
+    background-color: rgba(0,0,0,1);
+    border-radius: 13px;
+    border-color: rgba(156,0,0,1);
+    border-width: 0px;
+    caret-color: rgba(156,0,0,1);
+}
+.input_text:hover {
+    border-width: 1px;
+}
+.username_input {
+    width: 170px;
+    color: rgba(159,159,159,1);
+    font-family: Roboto Mono;
+    font-weight: Regular;
+    font-size: 18px;
+    position: absolute;
+    top: 15%;
+    left: 80px;
+    opacity: 1;
+    text-align: left;
+}
+.username_bar {
+    width: 3px;
+    height: 21px;
+    background: rgba(156,0,0,1);
+    opacity: 1;
+    position: absolute;
+    top: 18%;
+    left: 260px;
+    overflow: hidden;
+}
+.username_icon {
+    position: absolute;
+    top: 18%;
+    left: 60px;
+}
+.password_input {
+    width: 170px;
+    color: rgba(159,159,159,1);
+    position: absolute;
+    top: 45%;
+    left: 80px;
+    font-family: Roboto Mono;
+    font-weight: Regular;
+    font-size: 18px;
+    opacity: 1;
+    text-align: left;
+}
+.password_bar {
+    width: 3px;
+    height: 21px;
+    background: rgba(156,0,0,1);
+    opacity: 1;
+    position: absolute;
+    top: 48%;
+    left: 260px;
+    overflow: hidden;
+}
+.password_icon {
+    position: absolute;
+    top: 46%;
+    left: 60px;
+}
+
+.login_button {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 13px;
+    border: 1px solid rgba(156,0,0,1);
+    box-shadow: 0 4px rgb(156, 0, 0);
+    position: absolute;
+    top: 70%;
+    left: 60px;
+    width: 60%;
+    color: rgba(159,159,159,1);
+}
+.login_button:hover,
+.login_button:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+  box-shadow: 0 4px rgb(156, 0, 0);
+}
+
+.inner_picture {
+    width: 821px;
+    height: 607px;
+    background: url("../../assets/images/loginview_images/login_bkg_image.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 159px;
+    left: 521px;
+    overflow: hidden;
+}
+  
