@@ -2,15 +2,14 @@
 
 .main_menu_container {
     width: 100%;
-    height: 448px;
+    height: 100%;
     /*background: url("../images/v40_167.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     opacity: 1;
     position: absolute;
-    top: 246px;
-    left: 263px;
+    top: 20%;
     overflow: hidden;
 }
 
@@ -58,6 +57,7 @@
     font-size: 18px;
     opacity: 1;
     text-align: left;
+    top: 34%;
 }
 .card_icon {
     width: 50px;
@@ -78,7 +78,6 @@
 }
 .detection_title {
     width: 156px;
-    top: 70px;
     left: 144px;
 }
 .detection_icon {
@@ -91,11 +90,10 @@
 /* Recognition Card */
 .recognition_card_container {
     top: 0px;
-    left: 477px;
+    left: 25%;
 }
 .recognition_title {
     width: 177px;
-    top: 70px;
     left: 136px;
 }
 .recognition_icon {
@@ -107,12 +105,11 @@
 
 /* Vigilance Card */
 .vigilance_card_container {
-    top: 236px;
+    top: 25%;
     left: 0px;
 }
 .vigilance_title {
     width: 230px;
-    top: 82px;
     left: 107px;
 }
 .vigilance_icon {
@@ -124,12 +121,11 @@
 
 /* Access Control Card */
 .access_card_container {
-    top: 236px;
-    left: 477px;
+    top: 25%;
+    left: 25%;
 }
 .access_title {
     width: 158px;
-    top: 82px;
     left: 145px;
 }
 .access_icon {
@@ -141,12 +137,11 @@
 
 /* Groups Card */
 .groups_card_container {
-    top: 236px;
-    left: 958px;
+    top: 25%;
+    left: 50%;
 }
 .groups_title {
     width: 71px;
-    top: 82px;
     left: 186px;
 }
 .groups_icon {
@@ -159,11 +154,10 @@
 /* Profiles Card */
 .profiles_card_container {
     top: 0px;
-    left: 958px;
+    left: 50%;
 }
 .profiles_title {
     width: 92px;
-    top: 70px;
     left: 176px;
 }
 .profiles_icon {
@@ -172,3 +166,83 @@
     background-position: center center;
     background-size: cover;
 }
+
+/* Mobile Devices */
+
+.main_menu_container { left: 0%; top: 5%; }
+.detection_card_container { left: 0%; top: 0%; }
+.recognition_card_container { left: 0%; top: 25%; }
+.vigilance_card_container { left: 0%; top: 50%; }
+.access_card_container { left: 0%; top: 75%; }
+.profiles_card_container { left: 0%; top: 100%; }
+.groups_card_container { left: 0%; top: 125%; }
+
+@media only screen and (min-width: 580px) { 
+    .main_menu_container { left: 5%; top: 5%; }
+    .detection_card_container { left: 5%; top: 0%; }
+    .recognition_card_container { left: 5%; top: 25%; }
+    .vigilance_card_container { left: 5%; top: 50%; }
+    .access_card_container { left: 5%; top: 75%; }
+    .profiles_card_container { left: 5%; top: 100%; }
+    .groups_card_container { left: 5%; top: 125%; }
+}
+
+@media only screen and (min-width: 700px) { 
+    .main_menu_container { left: 10%; top: 5%; }
+    .detection_card_container { left: 10%; top: 0%; }
+    .recognition_card_container { left: 10%; top: 25%; }
+    .vigilance_card_container { left: 10%; top: 50%; }
+    .access_card_container { left: 10%; top: 75%; }
+    .profiles_card_container { left: 10%; top: 100%; }
+    .groups_card_container { left: 10%; top: 125%; }
+}
+
+@media only screen and (min-width: 900px) { 
+    .main_menu_container { left: 2%; top: 15%; }
+    .detection_card_container { left: 0%; top: 0%; }
+    .recognition_card_container { left: 50%; top: 0%; }
+    .vigilance_card_container { left: 0%; top: 25%; }
+    .access_card_container { left: 50%; top: 25%; }
+    .profiles_card_container { left: 0%; top: 50%; }
+    .groups_card_container { left: 50%; top: 50%; }
+}
+
+@media only screen and (min-width: 1080px) { 
+    .main_menu_container { left: 5%; top: 15%; }
+    .detection_card_container { left: 0%; top: 0%; }
+    .recognition_card_container { left: 50%; top: 0%; }
+    .vigilance_card_container { left: 0%; top: 25%; }
+    .access_card_container { left: 50%; top: 25%; }
+    .profiles_card_container { left: 0%; top: 50%; }
+    .groups_card_container { left: 50%; top: 50%; }
+} 
+
+@media only screen and (min-width: 1420px) { 
+    .main_menu_container { left: 2%; }
+    .detection_card_container { left: 0%; top: 0%; }
+    .recognition_card_container { left: 32%; top: 0%; }
+    .vigilance_card_container { left: 0%; top: 25%; }
+    .access_card_container { left: 32%; top: 25%; }
+    .profiles_card_container { left: 64%; top: 0%; }
+    .groups_card_container { left: 64%; top: 25%; }
+}
+
+@media only screen and (min-width: 1600px) { 
+    .main_menu_container { left: 10%; }
+    .detection_card_container { left: 0%; top: 0%; }
+    .recognition_card_container { left: 28%; top: 0%; }
+    .vigilance_card_container { left: 0%; top: 25%; }
+    .access_card_container { left: 28%; top: 25%; }
+    .profiles_card_container { left: 56%; top: 0%; }
+    .groups_card_container { left: 56%; top: 25%; }
+} 
+
+@media only screen and (min-width: 1750px) { 
+    .main_menu_container { left: 15%; }
+    .detection_card_container { left: 0%; top: 0%; }
+    .recognition_card_container { left: 25%; top: 0%; }
+    .vigilance_card_container { left: 0%; top: 25%; }
+    .access_card_container { left: 25%; top: 25%; }
+    .profiles_card_container { left: 50%; top: 0%; }
+    .groups_card_container { left: 50%; top: 25%; }
+} 
