@@ -12,6 +12,7 @@
     overflow: hidden;
 }
 
+
 /* General Styles */
 .info_card {
     width: 444px;
@@ -22,6 +23,9 @@
     opacity: 1;
     position: absolute;
     overflow: hidden;
+    border-radius: 13px;
+    border: 1px solid rgba(156,0,0,1);
+    box-shadow: 0 4px rgb(156, 0, 0);
 }
 .card_background {
     width: 444px;
@@ -31,15 +35,21 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    border: 1px solid rgba(156,0,0,1);
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-    border-bottom-left-radius: 13px;
-    border-bottom-right-radius: 13px;
     overflow: hidden;
 }
+.info_card:hover .card_background {
+    background: rgb(0, 0, 0);
+    border-color: rgba(156,0,0,1);
+}
+.info_card:active {
+    box-shadow: 0 5px rgb(156, 0, 0,1);
+    transform: translateY(3px);
+}
+.info_card:hover .card_title {
+    color: rgb(210,210,210,1)
+}
 .card_title {
-    color: rgba(115,115,115,1);
+    color: rgba(159,159,159,1);
     position: absolute;
     font-family: Roboto Mono;
     font-weight: Regular;
