@@ -25,7 +25,7 @@ body {
 
 .navbar_background {
     width: 100%;
-    height: 41px;
+    height: 100%;
     background: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
@@ -40,8 +40,10 @@ body {
     opacity: 1;
     position: absolute;
     background-color: Transparent;
-    top: 9px;
+    top: 25%;
     border-radius: 50%;
+    color: rgba(156,0,0,1);
+    border-width: 0px;
 }
 
 /* Specific Styles */
@@ -55,39 +57,29 @@ body {
     font-weight: Regular;
     font-size: 12px;
     opacity: 1;
-
+    text-align: left;
+    top: 35%;
 }
 
 /* Specific elements */
 .username {
-    top: 13px;
-    left: 1830px;
-    text-align: left;
+    left: 78.3%;
 }
 .language {
-    text-align: left;
-    top: 13px;
-    left: 1772px;
+    left: 67.7%;
 }
 .theme_icon {
-    color: rgba(156,0,0,1);
-    left: 1740px;
-    border-width: 0px;
+    left: 62.2%;
 }
 .theme_icon:active {
     box-shadow: 0 1px rgb(156, 0, 0,1);
     transform: translateY(1px);
 }
 .language_icon {
-    position: absolute;
-    color: rgba(156,0,0,1);
-    left: 1800px;
-    border-width: 0px;
+    left: 72.8%;
 }
 .activate_sidebar_icon {
-    color: rgba(156,0,0,1);
-    left: 10px;
-    border-width: 0px;
+    left: 1%;
 }
 .activate_sidebar_icon:active {
     box-shadow: 0 1px rgb(156, 0, 0,1);
@@ -103,9 +95,76 @@ body {
     border-style: solid;
     border-width: 1px;
     border-color: rgba(156,0,0,1);
-    left: 1890px;
+    left: 90.3%;
 }
 .avatar_button:active .avatar{
     box-shadow: 0 1px rgb(156, 0, 0,1);
     transform: translateY(1px);
+}
+
+/* Only for desktop tablets */
+@media only screen and (min-width: 580px) {
+    .username {
+        left: 83.3%;
+    }
+    .language {
+        left: 75.2%;
+    }
+    .theme_icon {
+        left: 70.6%;
+    }
+    .language_icon {
+        left: 79%;
+    }
+    .activate_sidebar_icon {
+        left: 1%;
+    }
+    .avatar {
+        left: 93.3%;
+    }
+}
+
+
+/* Only for desktop browsers */
+@media only screen and (min-width: 1080px) {
+    .username {
+        left: 92.3%;
+    }
+    .language {
+        left: 88.2%;
+    }
+    .theme_icon {
+        left: 85.6%;
+    }
+    .language_icon {
+        left: 90.1%;
+    }
+    .activate_sidebar_icon {
+        left: 1%;
+    }
+    .avatar {
+        left: 97.3%;
+    }
+}
+
+/* Only for desktop browsers */
+@media only screen and (min-width: 1420px) {
+    .username {
+        left: 93.6%;
+    }
+    .language {
+        left: 90%;
+    }
+    .theme_icon {
+        left: 88%;
+    }
+    .language_icon {
+        left: 91.5%;
+    }
+    .activate_sidebar_icon {
+        left: 1%;
+    }
+    .avatar {
+        left: 97.3%;
+    }
 }
