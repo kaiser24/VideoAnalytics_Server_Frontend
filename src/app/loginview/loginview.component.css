@@ -98,16 +98,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     opacity: 1;
     text-align: left;
 }
-.username_bar {
-    width: 3px;
-    height: 21px;
-    background: rgba(156,0,0,1);
-    opacity: 1;
-    position: absolute;
-    top: 18%;
-    left: 260px;
-    overflow: hidden;
-}
+
 .username_icon {
     position: absolute;
     top: 18%;
@@ -125,16 +116,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     opacity: 1;
     text-align: left;
 }
-.password_bar {
-    width: 3px;
-    height: 21px;
-    background: rgba(156,0,0,1);
-    opacity: 1;
-    position: absolute;
-    top: 48%;
-    left: 260px;
-    overflow: hidden;
-}
+
 .password_icon {
     position: absolute;
     top: 46%;
