@@ -30,8 +30,8 @@
     box-shadow: 0 4px rgb(156, 0, 0);
 }
 .card_background {
-    width: 444px;
-    height: 202px;
+    width: 100%;
+    height: 100%;
     background: rgba(12,12,12,1);
     opacity: 1;
     position: absolute;
@@ -170,32 +170,45 @@
 
 /* Mobile Devices */
 
-.main_menu_container { left: 0%; top: 5%; }
+.main_menu_container { left: 0%; top: 6%; }
 .detection_card_container { left: 0%; top: 0%; }
 .recognition_card_container { left: 0%; top: 25%; }
 .vigilance_card_container { left: 0%; top: 50%; }
 .access_card_container { left: 0%; top: 75%; }
 .profiles_card_container { left: 0%; top: 100%; }
 .groups_card_container { left: 0%; top: 125%; }
+.info_card { width: 360px; height: 150px; }
+.card_title { left: 30%; top: 34%;}
+.card_icon { left: 45%; top: 4%;}
 
 @media only screen and (min-width: 580px) { 
-    .main_menu_container { left: 5%; top: 5%; }
+    .main_menu_container { left: 5%; top: 6%; }
     .detection_card_container { left: 5%; top: 0%; }
     .recognition_card_container { left: 5%; top: 25%; }
     .vigilance_card_container { left: 5%; top: 50%; }
     .access_card_container { left: 5%; top: 75%; }
     .profiles_card_container { left: 5%; top: 100%; }
     .groups_card_container { left: 5%; top: 125%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 }
 
 @media only screen and (min-width: 700px) { 
-    .main_menu_container { left: 10%; top: 5%; }
+    .main_menu_container { left: 10%; top: 6%; }
     .detection_card_container { left: 10%; top: 0%; }
     .recognition_card_container { left: 10%; top: 25%; }
     .vigilance_card_container { left: 10%; top: 50%; }
     .access_card_container { left: 10%; top: 75%; }
     .profiles_card_container { left: 10%; top: 100%; }
     .groups_card_container { left: 10%; top: 125%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 }
 
 @media only screen and (min-width: 900px) { 
@@ -206,6 +219,11 @@
     .access_card_container { left: 50%; top: 25%; }
     .profiles_card_container { left: 0%; top: 50%; }
     .groups_card_container { left: 50%; top: 50%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 }
 
 @media only screen and (min-width: 1080px) { 
@@ -216,6 +234,11 @@
     .access_card_container { left: 50%; top: 25%; }
     .profiles_card_container { left: 0%; top: 50%; }
     .groups_card_container { left: 50%; top: 50%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 } 
 
 @media only screen and (min-width: 1420px) { 
@@ -226,6 +249,11 @@
     .access_card_container { left: 32%; top: 25%; }
     .profiles_card_container { left: 64%; top: 0%; }
     .groups_card_container { left: 64%; top: 25%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 }
 
 @media only screen and (min-width: 1600px) { 
@@ -236,6 +264,11 @@
     .access_card_container { left: 28%; top: 25%; }
     .profiles_card_container { left: 56%; top: 0%; }
     .groups_card_container { left: 56%; top: 25%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 } 
 
 @media only screen and (min-width: 1750px) { 
@@ -246,4 +279,9 @@
     .access_card_container { left: 25%; top: 25%; }
     .profiles_card_container { left: 50%; top: 0%; }
     .groups_card_container { left: 50%; top: 25%; }
+    .info_card { width: 444px; height: 202px; }
+    .card_title { left: 30%; top: 34%;}
+    .card_icon { left: 45%; top: 10%;}
+    .profiles_title { left: 40%;}
+    .groups_title { left: 44%;}
 } 
