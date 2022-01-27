@@ -1,34 +1,28 @@
-* {
-    box-sizing: border-box;
-  }
-  body {
-    font-size: 14px;
-  }
-  .v58_51 {
+
+  .view_container {
     width: 100%;
-    height: 940px;
+    height: 100%;
     background: rgba(28,28,28,1);
     opacity: 1;
     position: absolute;
-    top: 0px;
-    left: 0px;
     overflow: hidden;
   }
 
-  .v82_30 {
-    width: 100%;
-    height: 549px;
+  .camera_background {
+    width: 50%;
+    height: 60%;
     background: rgba(12,12,12,1);
     opacity: 1;
-    position: absolute;
-    top: 126px;
-    left: 345px;
     border: 4px solid rgba(156,0,0,1);
+    border-radius: 13px;
+    position: relative;
+    margin: 0 auto;
+    top: 15%;
   }
   .v90_29 {
     width: 254px;
     height: 291px;
-    background: url("../images/v90_29.png");
+    /*background: url("../images/v90_29.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -55,7 +49,7 @@
   .v89_40 {
     width: 94px;
     height: 61px;
-    background: url("../images/v89_40.png");
+    /*background: url("../images/v89_40.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -95,7 +89,7 @@
   .v89_43 {
     width: 20px;
     height: 21px;
-    background: url("../images/v89_43.png");
+    /*background: url("../images/v89_43.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -108,7 +102,7 @@
   .v56_31 {
     width: 94px;
     height: 61px;
-    background: url("../images/v56_31.png");
+    /*background: url("../images/v56_31.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -148,7 +142,7 @@
   .v56_34 {
     width: 20px;
     height: 21px;
-    background: url("../images/v56_34.png");
+    /*background: url("../images/v56_34.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -161,7 +155,7 @@
   .v89_35 {
     width: 94px;
     height: 61px;
-    background: url("../images/v89_35.png");
+    /*background: url("../images/v89_35.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -201,7 +195,7 @@
   .v89_38 {
     width: 20px;
     height: 21px;
-    background: url("../images/v89_38.png");
+    /*background: url("../images/v89_38.png");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -211,4 +205,5 @@
     left: 37px;
     overflow: hidden;
   }
+
   
