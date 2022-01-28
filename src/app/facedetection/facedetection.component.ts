@@ -13,6 +13,7 @@ export class FaceDetectionComponent {
     signalingLog: String = 'signaling: ';
     // DOM elements
     @ViewChild('video') video!: ElementRef;
+    @ViewChild('video-resolution') resolution_element!: ElementRef;
 
     // Class Methods
     createPeerConnection():RTCPeerConnection {
@@ -46,7 +47,41 @@ export class FaceDetectionComponent {
     }
 
     start() {
+        let resolution: String;
+        let resolution_vals: String[];
+        //let constraints: { [id: string]: boolean, [id: number]: boolean } = {};
+        let constraints: any;
         this.pc = this.createPeerConnection();
+
+        constraints = { audio: false, video: false };
+        resolution = this.resolution_element.nativeElement.value;
+
+        if (resolution) {
+            resolution_vals = resolution.split('x');
+            constraints['video'] = {
+                width: parseInt(resolution[0], 0),
+                height: parseInt(resolution[1], 0)
+            };
+        } else {
+            constraints.video = true;
+        }
+
+        if (constraints.audio || constraints.video) {
+            if (constraints.video) {
+                //document.getElementById('media').style.display = 'block';
+            }
+            navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+                stream.getTracks().forEach(function(track) {
+                    //this.pc.addTrack(track, stream);
+                });
+                //return negotiate();
+            }, function(err) {
+                alert('Could not acquire media: ' + err);
+            });
+        } else {
+            //negotiate();
+        }
+            
 
     }
 }
