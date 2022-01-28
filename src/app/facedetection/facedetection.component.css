@@ -78,6 +78,11 @@
 .rsubmenu_button:hover .button_Text {
   color: rgb(210,210,210,1)
 }
+.rsubmenu_button:disabled,
+.rsubmenu_button[disabled]{
+  box-shadow: 0 5px rgb(156, 0, 0,1);
+  transform: translateY(3px);
+}
 
 .camera_background{
   width: 100%;
