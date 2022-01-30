@@ -2,13 +2,13 @@
     <div class="center_container"></div>
     <div class="login_form_container">
         <div class="login_form_background"></div>
-        <form action="">
+        <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && login(f)">
             <i class="bi bi-chevron-right chevron_icon username_icon"></i>
-            <input type="text" id="username" name="username" placeholder="Username" class="username_input input_text">Username<br>
+            <input type="text" id="username" name="username" placeholder="Username" class="username_input input_text" ngModel required >Username<br>
             <div class="username_bar"></div>
             <i class="bi bi-chevron-right chevron_icon password_icon"></i>
             <div class="password_bar"></div>
-            <input type="password" id="password" name="password" placeholder="Password" class="password_input input_text">Password<br><br>
+            <input type="password" id="password" name="password" placeholder="Password" class="password_input input_text" ngModel required >Password<br><br>
             <input type="submit" value="Login" class="btn login_button">
         </form>
     </div>

@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ApiLoginService } from '../services/apiHttp.service';
+import { LoginDataModel } from '../models/users.models';
+
 
 @Component({
     selector: 'app-loginview',
     templateUrl: './loginview.component.html',
-    styleUrls: ['./loginview.component.css']
+    styleUrls: ['./loginview.component.css'],
+    providers : [ApiLoginService]
 })
 export class LoginViewComponent {
-    sometext = "hey"
+    constructor(private api_login: ApiLoginService) {}
+
+    login(form: NgForm){
+        const username:string = form.value.username;
+        const password:string = form.value.password;
+        let credentials:LoginDataModel = {username, password}
+
+        this.api_login.loginRequest( credentials );
+    }
 }
