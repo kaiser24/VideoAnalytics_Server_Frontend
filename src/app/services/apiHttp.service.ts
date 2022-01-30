@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Constants } from '../config/constants';
 import { LoginDataModel } from '../models/users.models';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiLoginService {
@@ -14,11 +15,12 @@ export class ApiLoginService {
         let body = new HttpParams({
             fromObject: credentials
         });
-        this.http.post(this.constants.API_ENDPOINT+"/login",body)
-        .subscribe( 
-            response => { console.log(response);
-            }, 
-            error => { console.log(error);}
+        return this.http.post<any>(this.constants.API_ENDPOINT+"/login",body)
+        .pipe(
+            map(response => ({
+                token: response.token,
+                status: 200
+            }))
         );
     }
     

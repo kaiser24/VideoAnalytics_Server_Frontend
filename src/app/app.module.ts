@@ -16,6 +16,7 @@ import { LoginViewComponent } from './loginview/loginview.component';
 
 // Services
 import { Constants } from './config/constants';
+import { ApiLoginService } from './services/apiHttp.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { Constants } from './config/constants';
   ],
   providers: [
     Constants,
-    HttpClient
+    HttpClient,
+    ApiLoginService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,8 +7,7 @@ import { LoginDataModel } from '../models/users.models';
 @Component({
     selector: 'app-loginview',
     templateUrl: './loginview.component.html',
-    styleUrls: ['./loginview.component.css'],
-    providers : [ApiLoginService]
+    styleUrls: ['./loginview.component.css']
 })
 export class LoginViewComponent {
     constructor(private api_login: ApiLoginService) {}
@@ -18,6 +17,10 @@ export class LoginViewComponent {
         const password:string = form.value.password;
         let credentials:LoginDataModel = {username, password}
 
-        this.api_login.loginRequest( credentials );
+        this.api_login.loginRequest( credentials )
+        .subscribe(
+            response => { console.log(response) },
+            err => { console.log(err); }
+        );
     }
 }
