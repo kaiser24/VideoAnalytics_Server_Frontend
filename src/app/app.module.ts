@@ -1,13 +1,18 @@
+// Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
+// Components
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './navbar/navbar.component';
 import { FaceDetectionComponent } from './facedetection/facedetection.component';
 import { MainMenuComponent } from './home/main_menu/main_menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginViewComponent } from './loginview/loginview.component';
+
+// Services
+import { Constants } from './config/constants';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,7 @@ import { LoginViewComponent } from './loginview/loginview.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Constants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
