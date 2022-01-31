@@ -28,7 +28,7 @@ export class JWTTokenService {
 
     getUser() {
       this.decodeToken();
-      return this.decodedToken ? this.decodedToken["displayname"] : null;
+      return this.decodedToken ? this.decodedToken["username"] : null;
     }
 
     getEmailId() {
