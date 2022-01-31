@@ -17,6 +17,7 @@ import { LoginViewComponent } from './loginview/loginview.component';
 // Services
 import { Constants } from './config/constants';
 import { ApiLoginService } from './services/apiHttp.service';
+import { LocalStorageService } from './services/localstorage.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ApiLoginService } from './services/apiHttp.service';
   providers: [
     Constants,
     HttpClient,
-    ApiLoginService
+    ApiLoginService,
+    LocalStorageService
   ],
   bootstrap: [AppComponent]
 })
