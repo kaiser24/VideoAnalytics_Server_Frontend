@@ -18,6 +18,8 @@ import { LoginViewComponent } from './loginview/loginview.component';
 import { Constants } from './config/constants';
 import { ApiLoginService } from './services/apiHttp.service';
 import { LocalStorageService } from './services/localstorage.service';
+import { JWTTokenService } from './services/jwt.service';
+import { AuthorizeGuard } from './services/authguard.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { LocalStorageService } from './services/localstorage.service';
     Constants,
     HttpClient,
     ApiLoginService,
-    LocalStorageService
+    LocalStorageService,
+    JWTTokenService,
+    AuthorizeGuard
   ],
   bootstrap: [AppComponent]
 })
