@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiLoginService } from '../services/apiHttp.service';
 import { LoginDataModel } from '../models/users.models';
+import { LocalStorageService } from '../services/localstorage.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,17 +12,28 @@ import { LoginDataModel } from '../models/users.models';
     styleUrls: ['./loginview.component.css']
 })
 export class LoginViewComponent {
-    constructor(private api_login: ApiLoginService) {}
+    constructor(
+        private loginService: ApiLoginService,
+        private authStorageService: LocalStorageService,
+        private router: Router
+    ) {}
 
     login(form: NgForm){
         const username:string = form.value.username;
         const password:string = form.value.password;
         let credentials:LoginDataModel = {username, password}
 
-        this.api_login.loginRequest( credentials )
+        this.loginService.loginRequest( credentials )
         .subscribe(
-            response => { console.log(response) },
+            response => { 
+                if( response.status == 200) {
+                    this.router.navigate(['/']);
+                }else{
+                    console.log("Wrong Credentials")
+                }
+             },
             err => { console.log(err); }
         );
+        
     }
 }
