@@ -4,6 +4,7 @@ import { ApiLoginService } from '../services/apiHttp.service';
 import { LoginDataModel } from '../models/users.models';
 import { LocalStorageService } from '../services/localstorage.service';
 import { Router } from '@angular/router';
+import { AuthorizeGuard } from '../services/authguard.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class LoginViewComponent {
     constructor(
         private loginService: ApiLoginService,
         private authStorageService: LocalStorageService,
+        private authGuard: AuthorizeGuard,
         private router: Router
     ) {}
 
@@ -27,6 +29,7 @@ export class LoginViewComponent {
         .subscribe(
             response => { 
                 if( response.status == 200) {
+                    this.authStorageService.set("token",response.token)
                     this.router.navigate(['/']);
                 }else{
                     console.log("Wrong Credentials")
