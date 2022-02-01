@@ -22,7 +22,7 @@ import { JWTTokenService } from './services/jwt.service';
 import { AuthorizeGuard } from './services/authguard.service';
 
 //Interceptor
-import { UniversalAppInterceptor } from './interceptors/httpInterceptor.interceptor';
+import { UniversalAppInterceptor } from './interceptors/authHttp.interceptor';
 
 @NgModule({
   declarations: [
