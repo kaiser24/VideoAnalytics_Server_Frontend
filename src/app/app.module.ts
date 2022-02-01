@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
 // Components
@@ -20,6 +20,9 @@ import { ApiLoginService } from './services/apiHttp.service';
 import { LocalStorageService } from './services/localstorage.service';
 import { JWTTokenService } from './services/jwt.service';
 import { AuthorizeGuard } from './services/authguard.service';
+
+//Interceptor
+import { UniversalAppInterceptor } from './interceptors/httpInterceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { AuthorizeGuard } from './services/authguard.service';
     ApiLoginService,
     LocalStorageService,
     JWTTokenService,
-    AuthorizeGuard
+    AuthorizeGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: UniversalAppInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
