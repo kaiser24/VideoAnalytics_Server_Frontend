@@ -9,18 +9,18 @@ body {
     font-size: 14px;
 }
 #element {
-	caret-color: rgba(156,0,0,1);
+	caret-color: #117f60;
 }
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
-    border-color: rgba(156,0,0,1);
-    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(159, 0, 0, 0.6);
+    border-color: #117f60;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px #117f60;
     outline: 0 none;
 }
 /* General styles */
 .login_view_container {
     width: 100%;
     height: 100%;
-    background: rgba(28,28,28,1);
+    background: #2c2c2c;
     opacity: 1;
     position: absolute;
     top: 0px;
@@ -28,7 +28,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     overflow: hidden;
 }
 .center_container {
-    background: rgba(12,12,12,1);
+    background: #262626;
     opacity: 1;
     position: absolute;
     border-top-left-radius: 15px;
@@ -52,7 +52,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 .login_form_background {
     width: 334px;
     height: 180px;
-    background: rgba(0,0,0,1);
+    background: #282828;
     opacity: 1;
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
@@ -61,7 +61,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     overflow: hidden;
 }
 .chevron_icon {
-    color: rgba(156,0,0,1);
+    color: #117f60;
     width: 25px;
     height: 25px;
     opacity: 1;
@@ -69,11 +69,11 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     -webkit-text-stroke: 2px;
 }
 .input_text {
-    background-color: rgba(0,0,0,1);
+    background-color: #282828;
     border-radius: 13px;
-    border-color: rgba(156,0,0,1);
+    border-color: #117f60;
     border-width: 0px;
-    caret-color: rgba(156,0,0,1);
+    caret-color: #117f60;
 }
 .input_text:hover {
     border-width: 0px;
@@ -123,8 +123,8 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     position: absolute;
     overflow: hidden;
     border-radius: 13px;
-    border: 1px solid rgba(156,0,0,1);
-    box-shadow: 0 4px rgb(156, 0, 0);
+    border: 1px solid #117f60;
+    box-shadow: 0 4px #117f60;
     position: absolute;
     top: 70%;
     left: 60px;
@@ -136,15 +136,16 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   /*transform: translateY(-0.25em);*/
 
-  box-shadow: 0 4px rgb(156, 0, 0);
+  box-shadow: 0 4px #117f60;
 }
 .login_button:hover,
 .login_button:focus {
     color: rgb(210,210,210,1);
 }
 .login_button:active {
-    box-shadow: 0 5px rgb(156, 0, 0,1);
+    box-shadow: 0 5px #117f60;
     transform: translateY(3px);
+
 }
 
 

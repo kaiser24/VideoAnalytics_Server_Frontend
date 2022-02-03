@@ -26,7 +26,7 @@ body {
 .navbar_background {
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,1);
+    background: #262626;
     opacity: 1;
     position: absolute;
     top: 0px;
@@ -42,7 +42,7 @@ body {
     background-color: Transparent;
     top: 25%;
     border-radius: 50%;
-    color: rgba(156,0,0,1);
+    color: #117f60;
     border-width: 0px;
 }
 
@@ -72,7 +72,7 @@ body {
     left: 62.2%;
 }
 .theme_icon:active {
-    box-shadow: 0 1px rgb(156, 0, 0,1);
+    box-shadow: 0 1px #117f60;
     transform: translateY(1px);
 }
 .language_icon {
@@ -82,7 +82,7 @@ body {
     left: 1%;
 }
 .activate_sidebar_icon:active {
-    box-shadow: 0 1px rgb(156, 0, 0,1);
+    box-shadow: 0 1px #117f60;
     transform: translateY(1px);
 }
 .bi {
@@ -94,11 +94,11 @@ body {
     position: absolute;
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(156,0,0,1);
+    border-color: #117f60;
     left: 90.3%;
 }
 .avatar_button:active .avatar{
-    box-shadow: 0 1px rgb(156, 0, 0,1);
+    box-shadow: 0 1px #117f60;
     transform: translateY(1px);
 }
 
