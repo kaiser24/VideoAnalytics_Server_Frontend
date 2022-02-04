@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { RtcOfferDataModel } from "../models/users.models";
+import { ApiFaceDetectionService } from "../services/apiHttp.service";
 
 @Component({
     selector: 'app-facedetection',
@@ -15,6 +17,10 @@ export class FaceDetectionComponent {
     @ViewChild('video') video!: ElementRef;
     //@ViewChild('video-resolution') resolution_element!: ElementRef;
     //@ViewChild('video-codec') video_codec!: ElementRef;
+
+    constructor(
+        private apiFaceDetectionService: ApiFaceDetectionService
+    ){}
 
     // Class Methods
 
@@ -76,6 +82,10 @@ export class FaceDetectionComponent {
                 }
 
                 // TODO: SDP offer petition.
+                let sdp:string = offer.sdp as string;
+                let type:string = offer.type as string;
+                let offerModel:RtcOfferDataModel = {sdp, type}
+                this.apiFaceDetectionService.FaceDetectionStreamRequest(offerModel)
 
 
             }catch (e) {
@@ -110,16 +120,16 @@ export class FaceDetectionComponent {
         }
 
         // Getting user Media (Critic PArt. Still a bit confusing)
-        if (constraints.audio || constraints.video) {
-
-            async function getMedia(pc: RTCPeerConnection){ 
+        if (constraints.audio || constraints.video) {   
+            (async function getMedia(pc: RTCPeerConnection){ 
                 try { 
                     let stream: MediaStream = await navigator.mediaDevices.getUserMedia(constraints) ;
                     stream.getTracks().forEach( (track) => { pc.addTrack(track, stream) } );
                 } catch (error) {
                     console.log(error);
                 }
-            }
+            })(this.pc);
+            
         } else {
             this.negotiate();
         }
