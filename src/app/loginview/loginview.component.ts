@@ -21,22 +21,21 @@ export class LoginViewComponent {
     ) {}
 
     login(form: NgForm){
-        const username:string = form.value.username;
-        const password:string = form.value.password;
-        let credentials:LoginDataModel = {username, password}
+        (async () => {
+            try{
+                const username:string = form.value.username;
+                const password:string = form.value.password;
+                let credentials:LoginDataModel = {username, password}
 
-        this.loginService.loginRequest( credentials )
-        .subscribe(
-            response => { 
-                if( response.status == 200) {
-                    this.authStorageService.set("token",response.token)
-                    this.router.navigate(['/']);
-                }else{
-                    console.log("Wrong Credentials")
-                }
-             },
-            err => { console.log(err); }
-        );
+                let loginResponse = await this.loginService.loginRequest( credentials );
+
+                this.authStorageService.set("token",loginResponse.token)
+                this.router.navigate(['/']);
+
+            }catch(error) {
+                console.log(error);                
+            }
+        })();
         
     }
 }

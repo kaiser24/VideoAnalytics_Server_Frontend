@@ -15,13 +15,7 @@ export class ApiLoginService {
         let body = new HttpParams({
             fromObject: credentials
         });
-        return this.http.post<any>(this.constants.API_ENDPOINT+"/login",body)
-        .pipe(
-            map(response => ({
-                token: response.token,
-                status: 200
-            }))
-        );
+        return this.http.post<any>(this.constants.API_ENDPOINT+"/login",body).toPromise();
     }
     
 }
@@ -37,13 +31,6 @@ export class ApiFaceDetectionService {
         let body = new HttpParams({
             fromObject: rtcoffer
         });
-        return this.http.post<any>(this.constants.API_ENDPOINT+"/process/facerecognition/stream", body)
-        .pipe(
-            map(response =>({
-                sdp: response.sdp,
-                type: response.type,
-                status: 200
-            }))
-        );
+        return this.http.post<any>(this.constants.API_ENDPOINT+"/process/facerecognition/stream", body).toPromise();
     }
 }
