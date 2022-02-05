@@ -7,7 +7,7 @@ import { AuthorizeGuard } from './services/authguard.service';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthorizeGuard]},
-  {path: 'facedetection', component: FaceDetectionComponent},
+  {path: 'facedetection', component: FaceDetectionComponent, canActivate: [AuthorizeGuard]},
   {path: 'login', component: LoginViewComponent},
 ];
 
