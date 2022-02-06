@@ -51,8 +51,8 @@ export class FaceDetectionComponent {
         // Connect Audio / Video
         pc.ontrack = evt => {
             console.log("Track");    
-            //if (evt.track.kind == 'video')
-            //    this.video.nativeElement.setAttribute('src', evt.streams[0]);
+            if (evt.track.kind == 'video')
+                this.video.nativeElement.srcObject = evt.streams[0];
         }
 
         return pc;
