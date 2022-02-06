@@ -16,7 +16,7 @@ import { LoginViewComponent } from './loginview/loginview.component';
 
 // Services
 import { Constants } from './config/constants';
-import { ApiLoginService } from './services/apiHttp.service';
+import { ApiLoginService, ApiFaceDetectionService } from './services/apiHttp.service';
 import { LocalStorageService } from './services/localstorage.service';
 import { JWTTokenService } from './services/jwt.service';
 import { AuthorizeGuard } from './services/authguard.service';
@@ -43,6 +43,7 @@ import { UniversalAppInterceptor } from './interceptors/authHttp.interceptor';
     Constants,
     HttpClient,
     ApiLoginService,
+    ApiFaceDetectionService,
     LocalStorageService,
     JWTTokenService,
     AuthorizeGuard,
