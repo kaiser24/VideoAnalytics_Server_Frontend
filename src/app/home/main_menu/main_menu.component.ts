@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-main_menu',
@@ -6,5 +7,11 @@ import { Component } from "@angular/core";
     styleUrls: ['./main_menu.component.css']
 })
 export class MainMenuComponent {
+    constructor(private router: Router) {}
+
+    navigatetoFacedetection(): void {
+        console.log("Selected Facedetection");
+        this.router.navigate(["/facedetection"]);
+    }
 
 }
