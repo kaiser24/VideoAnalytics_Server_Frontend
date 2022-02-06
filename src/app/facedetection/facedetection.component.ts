@@ -58,37 +58,34 @@ export class FaceDetectionComponent {
         return pc;
     }
 
-    // Negotiating between peers through the Signaling Server
+    // Negotiating between peers through the Signaling Server.
+    // This mis the core of the RTC connection and it works like this:
+    // pc object creates a local offer, this is the local description sdp. then
+    // Waits for Ice to complete. Then sends the offer to the  other peers
+    // through an endpoint on the signaling server, the other peer sends the answer sdp
+    // and then use this sdp to set the remote description and complete the connection
     negotiate() {
+        // Creates Offer sdp to set the local Description
         return this.pc.createOffer().then((offer) => {
-            console.log('THEN 1');
-            console.log(offer);
             return this.pc.setLocalDescription(offer);
         }).then(() => {
-            console.log('THEN 2');
-            // wait for ICE gathering to complete
+        // wait for ICE gathering to complete
             return new Promise<void>((resolve) => {
-                console.log('Starting ICE con');
                 if (this.pc.iceGatheringState === 'complete') {
-                    console.log('Starting ICE gath com,plete');
                     resolve();
                 } else {
-                    console.log('Starting ICE gath else');
                     const checkState = () => {
-                        console.log('ICE state check');
                         if (this.pc.iceGatheringState === 'complete') {
-                            console.log('ICE state check: complete');
                             this.pc.removeEventListener('icegatheringstatechange', checkState);
-                            console.log('ICE state resolving');
                             resolve();
                         }
                     }
-                    console.log('Starting ICE state event');
                     this.pc.addEventListener('icegatheringstatechange', checkState);
                 }
             });
         }).then(() => {
-            console.log('THEN 3');
+        // Codec filtering and sending the offer to the Signaling server which will pass
+        // offer to the other peer
             let offer: RTCSessionDescription|null= this.pc.localDescription;
             let codec:string = 'default';
                 
@@ -96,23 +93,24 @@ export class FaceDetectionComponent {
                 console.log("not default");
                 //offer!.sdp = this.sdpFilterCodec('video', codec, offer!.sdp);
             }
-    
+
             let sdp:string = offer!.sdp as string;
             let type:string = offer!.type as string;
             let offerModel:RtcOfferDataModel = {sdp, type}
+            // Sending the offer
             return this.apiFaceDetectionService.FaceDetectionStreamRequest(offerModel);
-
         }).then((answer) => {
-            console.log('THEN 5');
-            console.log(answer);
+        // Setting the remote Description once an answer is gotten
             this.pc.setRemoteDescription(answer);
+            console.log("Connection completed");
         }).catch((e)=> {
-            console.log('THEN 6 ERROR');
+        // Something went wrong
+            console.log('Error trying to establish connection');
             alert(e);
         });
     }
 
-    // Function to start Wertc connection process
+    // Function to start The WebRTC connection process
     start() {
         (async () => {
             let resolution: string;
@@ -121,7 +119,6 @@ export class FaceDetectionComponent {
             this.pc = this.createPeerConnection();
 
             // Setting up parameters
-            console.log("setting parameters");
             constraints = { audio: false, video: false };
             //resolution = this.resolution_element.nativeElement.value;
             resolution = "960x540";
@@ -139,24 +136,19 @@ export class FaceDetectionComponent {
             // Getting user Media (Critic PArt. Still a bit confusing)
             if (constraints.audio || constraints.video) {   
                 try { 
-                    console.log("Getting user media");
                     let stream: MediaStream = await navigator.mediaDevices.getUserMedia(constraints) ;
                     stream.getTracks().forEach( (track) => { this.pc.addTrack(track, stream) } );
-                    console.log("usermedia correctly loaded");
                 } catch (error) {
                     console.log(error);
                 }
-                console.log("before netiation");
-                await this.negotiate();
-                console.log("after negotiation");
-                
+                await this.negotiate();                
             } else {
                 this.negotiate();
-            }
-            
+            }    
     })();
     }
 
+    // Codec Filtering method. For when the default codecs are not selected.
     sdpFilterCodec(kind:string, codec:string, realSdp:any) {
         var allowed:number[] = [];
         var rtxRegex:RegExp = new RegExp('a=fmtp:(\\d+) apt=(\\d+)\r$');
