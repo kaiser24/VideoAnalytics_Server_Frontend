@@ -10,7 +10,6 @@
 }
 
 .camera_background {
-  background: #262626;
   border: 4px solid #117f60;
   border-radius: 13px;
   position: relative;
@@ -19,6 +18,12 @@
   height: 60%;
   top: 15%;
 }
+.videoInsert {
+  object-fit: fill;
+  position: absolute; 
+  border-radius: 13px;
+}
+
 .right_submenu {
   overflow: hidden;
   position: relative;
