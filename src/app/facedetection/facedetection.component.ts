@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { RtcOfferDataModel } from "../models/users.models";
 import { ApiFaceDetectionService } from "../services/apiHttp.service";
 
@@ -14,7 +14,7 @@ export class FaceDetectionComponent {
     iceConnectionLog: string = 'iceConnection: ';
     signalingLog: string = 'signaling: ';
     // DOM elements
-    @ViewChild('video') video!: ElementRef;
+    @ViewChild('video', { read: ElementRef }) video!:ElementRef;
     //@ViewChild('video-resolution') resolution_element!: ElementRef;
     //@ViewChild('video-codec') video_codec!: ElementRef;
 
@@ -27,114 +27,134 @@ export class FaceDetectionComponent {
     // Creating the peer connection and returns the peer connection object configured
     createPeerConnection():RTCPeerConnection {
         let config: any;
-        config= { sdpSemantics: 'unified-plan' };
-        let pc = new RTCPeerConnection( config );
+        //config= { sdpSemantics: 'unified-plan' };
+        let pc = new RTCPeerConnection(  );
 
         pc.addEventListener('icegatheringstatechange', () => {
             this.iceGatheringLog = this.iceGatheringLog + ' -> ' + pc.iceGatheringState;
+            console.log("Ice state gather: "+this.iceGatheringLog);
         }, false);
         this.iceGatheringLog = pc.iceGatheringState;
 
         pc.addEventListener('iceconnectionstatechange', () => {
             this.iceConnectionLog = this.iceConnectionLog + ' -> ' + pc.iceConnectionState;
+            console.log("Ice state conn: "+this.iceGatheringLog);
         });
         this.iceConnectionLog = pc.iceConnectionState;
 
         pc.addEventListener('signalingstatechange', () => {
             this.signalingLog = this.signalingLog + ' -> ' + pc.signalingState;
+            console.log("Signaling state: "+this.iceGatheringLog);
         });
         this.signalingLog = pc.signalingState;
 
         // Connect Audio / Video
-        pc.addEventListener('track', (evt) => {
-            if (evt.track.kind == 'video')
-                this.video.nativeElement.setAttribute('srcObject', evt.streams[0]);
-
-        });
+        pc.ontrack = evt => {
+            console.log("Track");    
+            //if (evt.track.kind == 'video')
+            //    this.video.nativeElement.setAttribute('src', evt.streams[0]);
+        }
 
         return pc;
     }
 
     // Negotiating between peers through the Signaling Server
-    negotiate(){
-        async () => {
-            // Need to create the RTC offer, then . 
-            try{
-                let offer: RTCLocalSessionDescriptionInit = await this.pc.createOffer();
-                this.pc.setLocalDescription(offer);
-                await new Promise<void>( (resolve) => {
-                    if (this.pc.iceGatheringState === 'complete'){
-                        resolve();
-                    } else {
-                        // Will this work?
-                        this.pc.onicegatheringstatechange = ev => {
-                            if (this.pc.iceGatheringState === 'complete'){
-                                resolve();
-                            }
-                        };
+    negotiate() {
+        return this.pc.createOffer().then((offer) => {
+            console.log('THEN 1');
+            console.log(offer);
+            return this.pc.setLocalDescription(offer);
+        }).then(() => {
+            console.log('THEN 2');
+            // wait for ICE gathering to complete
+            return new Promise<void>((resolve) => {
+                console.log('Starting ICE con');
+                if (this.pc.iceGatheringState === 'complete') {
+                    console.log('Starting ICE gath com,plete');
+                    resolve();
+                } else {
+                    console.log('Starting ICE gath else');
+                    const checkState = () => {
+                        console.log('ICE state check');
+                        if (this.pc.iceGatheringState === 'complete') {
+                            console.log('ICE state check: complete');
+                            this.pc.removeEventListener('icegatheringstatechange', checkState);
+                            console.log('ICE state resolving');
+                            resolve();
+                        }
                     }
-                });
-
-                let codec:string = 'default';
-                
-                if(codec !== 'default' ){
-                    offer.sdp = this.sdpFilterCodec('video', codec, offer.sdp);
+                    console.log('Starting ICE state event');
+                    this.pc.addEventListener('icegatheringstatechange', checkState);
                 }
-
-                // TODO: SDP offer petition.
-                let sdp:string = offer.sdp as string;
-                let type:string = offer.type as string;
-                let offerModel:RtcOfferDataModel = {sdp, type}
-                this.apiFaceDetectionService.FaceDetectionStreamRequest(offerModel)
-
-
-            }catch (e) {
-
+            });
+        }).then(() => {
+            console.log('THEN 3');
+            let offer: RTCSessionDescription|null= this.pc.localDescription;
+            let codec:string = 'default';
+                
+            if(codec !== 'default' ){
+                console.log("not default");
+                //offer!.sdp = this.sdpFilterCodec('video', codec, offer!.sdp);
             }
-            
-        }
-
-        
-    }
     
+            let sdp:string = offer!.sdp as string;
+            let type:string = offer!.type as string;
+            let offerModel:RtcOfferDataModel = {sdp, type}
+            return this.apiFaceDetectionService.FaceDetectionStreamRequest(offerModel);
+
+        }).then((answer) => {
+            console.log('THEN 5');
+            console.log(answer);
+            this.pc.setRemoteDescription(answer);
+        }).catch((e)=> {
+            console.log('THEN 6 ERROR');
+            alert(e);
+        });
+    }
+
     // Function to start Wertc connection process
     start() {
-        let resolution: string;
-        let resolution_vals: string[];
-        let constraints: any;
-        this.pc = this.createPeerConnection();
+        (async () => {
+            let resolution: string;
+            let resolution_vals: string[];
+            let constraints: any;
+            this.pc = this.createPeerConnection();
 
-        // Setting up parameters
-        constraints = { audio: false, video: false };
-        //resolution = this.resolution_element.nativeElement.value;
-        resolution = "960x540";
+            // Setting up parameters
+            console.log("setting parameters");
+            constraints = { audio: false, video: false };
+            //resolution = this.resolution_element.nativeElement.value;
+            resolution = "960x540";
 
-        if (resolution) { 
-            resolution_vals = resolution.split('x');
-            constraints['video'] = {
-                width: parseInt(resolution[0], 0),
-                height: parseInt(resolution[1], 0)
-            };
-        } else {
-            constraints.video = true;
-        }
+            if (resolution) { 
+                resolution_vals = resolution.split('x');
+                constraints['video'] = {
+                    width: parseInt(resolution[0], 0),
+                    height: parseInt(resolution[1], 0)
+                };
+            } else {
+                constraints.video = true;
+            }
 
-        // Getting user Media (Critic PArt. Still a bit confusing)
-        if (constraints.audio || constraints.video) {   
-            (async function getMedia(pc: RTCPeerConnection){ 
+            // Getting user Media (Critic PArt. Still a bit confusing)
+            if (constraints.audio || constraints.video) {   
                 try { 
+                    console.log("Getting user media");
                     let stream: MediaStream = await navigator.mediaDevices.getUserMedia(constraints) ;
-                    stream.getTracks().forEach( (track) => { pc.addTrack(track, stream) } );
+                    stream.getTracks().forEach( (track) => { this.pc.addTrack(track, stream) } );
+                    console.log("usermedia correctly loaded");
                 } catch (error) {
                     console.log(error);
                 }
-            })(this.pc);
+                console.log("before netiation");
+                await this.negotiate();
+                console.log("after negotiation");
+                
+            } else {
+                this.negotiate();
+            }
             
-        } else {
-            this.negotiate();
-        }
-            
-
+    })();
     }
 
     sdpFilterCodec(kind:string, codec:string, realSdp:any) {
