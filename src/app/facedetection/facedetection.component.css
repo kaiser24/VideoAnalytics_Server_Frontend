@@ -110,8 +110,6 @@
 }
 .live_button { left: 7%; }
 .snap_button { left: 37%;}
-.options_button { left: 67%; }
-
 
 @media only screen and (min-width: 700px) { 
   .camera_background{
@@ -130,7 +128,6 @@
     height: 20%;
     left: 25%;
   }
-  .live_button { top: 10%; }
-  .snap_button { top: 35%;}
-  .options_button { top: 60%; }
+  .live_button { top: 15%; }
+  .snap_button { top: 50%;}
 }

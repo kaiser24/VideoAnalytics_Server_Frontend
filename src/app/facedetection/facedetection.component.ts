@@ -7,16 +7,48 @@ import { ApiFaceDetectionService } from "../services/apiHttp.service";
     templateUrl: './facedetection.component.html',
     styleUrls: ['./facedetection.component.css']
 })
-export class FaceDetectionComponent {
+export class FaceDetectionComponent implements OnInit {
     // Members Declarations
+    rightMenusState: number = 1;
+    @ViewChild('liveButton', { read: ElementRef }) liveButton!: ElementRef;
+    @ViewChild('snapButton', { read: ElementRef }) snapButton!: ElementRef;
+
+    ngOnInit():void {
+        this.updateFaceDetOption();
+    }
+
+    updateFaceDetOption(): void{
+        switch(this.rightMenusState){
+            case 1: {
+                //somethings 
+                break;
+            }
+            case 2: { 
+                //somethings
+                break;
+            }
+            default: {
+                //somethings
+                break;
+            }
+
+        }
+    }
+    selectedFaceDetLive(): void {
+        this.rightMenusState = 1;        
+        this.updateFaceDetOption();
+    }
+    selectedFaceDetSnap(): void {
+        this.rightMenusState = 2;        
+        this.updateFaceDetOption();
+    }
+
     pc!: RTCPeerConnection;
     iceGatheringLog: string = 'iceGathering: ';
     iceConnectionLog: string = 'iceConnection: ';
     signalingLog: string = 'signaling: ';
     // DOM elements
     @ViewChild('video', { read: ElementRef }) video!:ElementRef;
-    //@ViewChild('video-resolution') resolution_element!: ElementRef;
-    //@ViewChild('video-codec') video_codec!: ElementRef;
 
     constructor(
         private apiFaceDetectionService: ApiFaceDetectionService
