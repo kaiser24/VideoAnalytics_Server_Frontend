@@ -13,6 +13,8 @@ import { FaceDetectionComponent } from './facedetection/facedetection.component'
 import { MainMenuComponent } from './home/main_menu/main_menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginViewComponent } from './loginview/loginview.component';
+import { FacedetectionliveComponent } from './facedetection/facedetectionlive/facedetectionlive.component';
+import { FacedetectionsnapComponent } from './facedetection/facedetectionsnap/facedetectionsnap.component';
 
 // Services
 import { Constants } from './config/constants';
@@ -31,7 +33,9 @@ import { UniversalAppInterceptor } from './interceptors/authHttp.interceptor';
     FaceDetectionComponent,
     MainMenuComponent,
     HomeComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    FacedetectionliveComponent,
+    FacedetectionsnapComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { ApiFaceDetectionService } from "../services/apiHttp.service";
 })
 export class FaceDetectionComponent implements OnInit {
     // Members Declarations
-    rightMenusState: number = 1;
+    rightMenusState: number = 2;
     @ViewChild('liveButton', { read: ElementRef }) liveButton!: ElementRef;
     @ViewChild('snapButton', { read: ElementRef }) snapButton!: ElementRef;
 

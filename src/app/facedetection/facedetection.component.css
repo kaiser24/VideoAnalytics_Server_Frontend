@@ -82,12 +82,22 @@
     text-align: center;
 }
 .rsubmenu_button:hover .button_Text {
-  color: rgb(210,210,210,1)
+  color: rgb(210,210,210,1);
 }
 .rsubmenu_button:disabled,
 .rsubmenu_button[disabled]{
   box-shadow: 0 5px #117f60;
   transform: translateY(3px);
+}
+
+.right_submenu:disabled,
+.rsubmenu_button[disabled] .button_background {
+  background: #117f60;
+}
+
+.right_submenu:disabled,
+.rsubmenu_button[disabled] .button_Text {
+  color: rgb(210,210,210,1);
 }
 
 .camera_background{
