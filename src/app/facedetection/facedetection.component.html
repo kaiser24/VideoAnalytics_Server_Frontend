@@ -8,12 +8,22 @@
         <button ngModule #liveButton [disabled]="rightMenusState==1" (click)="rightMenusState=1" class="live_button rsubmenu_button">
             <div class="button_background"></div>
             <span class="button_Text">Live</span>
-            <div class="button_icon"></div>
+        </button>
+        <button [disabled]="rightMenusState==1" type="button" class="button_start_live minimenu_button">
+            <i class="bi bi-skip-start-circle-fill"></i>
+        </button>
+        <button [disabled]="rightMenusState==1" type="button" class="button_stop_live minimenu_button">
+            <i class="bi bi-stop-circle-fill"></i>
+        </button>
+        <button [disabled]="rightMenusState==1" type="button" class="button_settings_live minimenu_button">
+            <i class="bi bi-gear-fill"></i>
         </button>
         <button ngModule #snapButton [disabled]="rightMenusState==2" (click)="rightMenusState=2" class="snap_button rsubmenu_button">
             <div class="button_background"></div>
             <span class="button_Text">Snap</span>
-            <div class="button_icon"></div>
+        </button>
+        <button [disabled]="rightMenusState==2" type="button" class="button_snap minimenu_button">
+            <i class="bi bi-image"></i>
         </button>
     </div>
 </div>
