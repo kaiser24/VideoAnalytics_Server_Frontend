@@ -22,7 +22,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    opacity: 1;
+    opacity: 0.85;
     position: absolute;
     overflow: hidden;
     border-radius: 13px;
@@ -32,7 +32,7 @@
 .card_background {
     width: 100%;
     height: 100%;
-    background: #282828;
+    background: #100d13;
     opacity: 1;
     position: absolute;
     top: 0px;
@@ -40,7 +40,7 @@
     overflow: hidden;
 }
 .info_card:hover .card_background {
-    background: #2c2c2c;
+    background: #221c28;
     border-color: #117f60;
 }
 .info_card:active {

@@ -20,7 +20,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 .login_view_container {
     width: 100%;
     height: 100%;
-    background: #2c2c2c;
+    background: url("src/assets/images/loginview_images/cool-background2.png");
     opacity: 1;
     position: absolute;
     top: 0px;
@@ -28,8 +28,8 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     overflow: hidden;
 }
 .center_container {
-    background: #262626;
-    opacity: 1;
+    background: #100d13;
+    opacity: 0.85;
     position: absolute;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -52,7 +52,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 .login_form_background {
     width: 334px;
     height: 180px;
-    background: #282828;
+    background: #221c28;
     opacity: 1;
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
@@ -69,7 +69,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     -webkit-text-stroke: 2px;
 }
 .input_text {
-    background-color: #282828;
+    background-color: #221c28;
     border-radius: 13px;
     border-color: #117f60;
     border-width: 0px;
@@ -177,6 +177,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     top: 48%;
     left: 4%;
 }
+
 /* Only for desktop tablets */
 @media only screen and (min-width: 580px) {
     .center_container {
