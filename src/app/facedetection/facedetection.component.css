@@ -128,8 +128,8 @@
 }
 
 .minimenu_button { 
-  width: 25%;
-  height: 25%;
+  width: 40px;
+  height: 40px;
   opacity: 1;
   position: absolute;
   background-color: #221c28;
@@ -138,7 +138,6 @@
   color: #117f60;
   border-width: 1px;
   border-color: #117f60;
-  transition: 1s;
 }
 .minimenu_button:hover { 
   background-color: #221c28;
@@ -151,12 +150,12 @@
 }
 .button_start_live { 
   left: 1%;
-  top: 5%;
+  top: 10%;
   transform: rotate(180deg);
 }
 .button_stop_live { 
   left: 1%;
-  top: 35%;
+  top: 28%;
 }
 
 .button_settings {
@@ -168,7 +167,7 @@
 }
 
 .button_snap {
-  top: 50%;
+  top: 55%;
 }
 
 .bi {
