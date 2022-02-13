@@ -1,7 +1,7 @@
 <div class="view_container">
     <app-navbar></app-navbar>
     <div ngModule #media class="camera_background">
-        <video ngModule #video class="video_element" width="100%" height="100%" autoplay="true" controls playsinline="true"></video>
+        <app-facedetectionlive #facedetectionlivecomponent [faceDetectionProcessState]="rightMenusLiveState" [hidden]="rightMenusState==2"></app-facedetectionlive>
     </div>
     <div class="right_submenu">
         <div class="right_submenu_background"></div>
@@ -9,10 +9,10 @@
             <div class="button_background"></div>
             <span class="button_Text">Live</span>
         </button>
-        <button [hidden]="rightMenusState==2" type="button" class="button_start_live sub_button_live minimenu_button">
+        <button type="button" [hidden]="rightMenusState==2" [disabled]="rightMenusLiveState==1" (click)="rightMenusLiveState=1;startFaceDetLive();" class="button_start_live sub_button_live minimenu_button">
             <i class="bi bi-skip-start-circle-fill"></i>
         </button>
-        <button [hidden]="rightMenusState==2" type="button" class="button_stop_live sub_button_live minimenu_button">
+        <button type="button" [hidden]="rightMenusState==2" [disabled]="rightMenusLiveState==0" (click)="rightMenusLiveState=0;stopFaceDetLive();" class="button_stop_live sub_button_live minimenu_button">
             <i class="bi bi-stop-circle-fill"></i>
         </button>
         <button type="button" class="button_settings sub_button_live minimenu_button">
