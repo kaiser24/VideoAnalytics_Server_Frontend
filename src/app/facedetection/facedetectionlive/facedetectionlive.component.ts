@@ -149,7 +149,24 @@ export class FacedetectionliveComponent {
   }
 
   stop(){
-    
+      // close transceivers
+      if (this.pc.getTransceivers) {
+          this.pc.getTransceivers().forEach((transceiver) => {
+              if (transceiver.stop) {
+                  transceiver.stop();
+              }
+          });
+      }
+  
+      // close local audio / video
+      this.pc.getSenders().forEach((sender) => {
+          sender.track?.stop();
+      });
+  
+      // close peer connection
+      setTimeout(() => {
+          this.pc.close();
+      }, 500);
   }
 
   // Codec Filtering method. For when the default codecs are not selected.
