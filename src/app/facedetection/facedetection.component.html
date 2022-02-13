@@ -18,7 +18,7 @@
         <button type="button" class="button_settings sub_button_live minimenu_button">
             <i class="bi bi-gear-fill"></i>
         </button>
-        <button ngModule #snapButton [disabled]="rightMenusState==2" (click)="rightMenusState=2" class="snap_button rsubmenu_button">
+        <button ngModule #snapButton [disabled]="rightMenusState==2" (click)="rightMenusState=2;rightMenusLiveState=0;stopFaceDetLive();" class="snap_button rsubmenu_button">
             <div class="button_background"></div>
             <span class="button_Text">Snap</span>
         </button>
