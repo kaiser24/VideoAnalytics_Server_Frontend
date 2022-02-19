@@ -29,7 +29,7 @@ export class LoginViewComponent {
 
                 let loginResponse = await this.loginService.loginRequest( credentials );
 
-                this.authStorageService.set("token",loginResponse.token)
+                this.authStorageService.set("token",`Bearer ${loginResponse.token}`)
                 this.router.navigate(['/']);
 
             }catch(error) {

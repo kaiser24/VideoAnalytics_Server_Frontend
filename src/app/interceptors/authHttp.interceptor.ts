@@ -12,7 +12,7 @@ export class UniversalAppInterceptor implements HttpInterceptor {
     req = req.clone({
       url:  req.url,
       setHeaders: {
-        'x-access-token': `${token}`
+        'authorization': `${token}`
       }
     });
     return next.handle(req);
