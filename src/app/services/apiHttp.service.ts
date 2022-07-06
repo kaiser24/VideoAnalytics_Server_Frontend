@@ -15,7 +15,7 @@ export class ApiLoginService {
         let body = new HttpParams({
             fromObject: credentials
         });
-        return this.http.post<any>(this.constants.API_ENDPOINT+"/login",body).toPromise();
+        return this.http.post<any>(this.constants.API_ENDPOINT+"/access/login",body).toPromise();
     }
     
 }
