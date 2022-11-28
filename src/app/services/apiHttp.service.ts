@@ -31,6 +31,6 @@ export class ApiFaceDetectionService {
         let body = new HttpParams({
             fromObject: rtcoffer
         });
-        return this.http.post<any>(this.constants.API_ENDPOINT+"/process/facedetection/stream", body).toPromise();
+        return this.http.post<any>(this.constants.API_ENDPOINT+"/detection/stream", body).toPromise();
     }
 }

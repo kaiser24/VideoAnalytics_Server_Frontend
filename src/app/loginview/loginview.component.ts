@@ -23,13 +23,13 @@ export class LoginViewComponent {
     login(form: NgForm){
         (async () => {
             try{
-                const username:string = form.value.username;
+                const email:string = form.value.username;
                 const password:string = form.value.password;
-                let credentials:LoginDataModel = {username, password}
+                let credentials:LoginDataModel = {email, password}
 
                 let loginResponse = await this.loginService.loginRequest( credentials );
 
-                this.authStorageService.set("token",`Bearer ${loginResponse.token}`)
+                this.authStorageService.set("token",`Bearer ${loginResponse.token}`);
                 this.router.navigate(['/']);
 
             }catch(error) {

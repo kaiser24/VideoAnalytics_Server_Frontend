@@ -1,5 +1,5 @@
 export type LoginDataModel = {
-    username: string;
+    email: string;
     password: string;
 }
 
